@@ -1,0 +1,14 @@
+{
+  "task": "smoke",
+  "trained_in": "October 2026",
+  "dataset": "D-Fire author-linked Kaggle mirror",
+  "source": "https://www.kaggle.com/datasets/sayedgamal99/smoke-fire-detection-yolo",
+  "split_counts": {
+    "train": 400,
+    "val": 100,
+    "test": 100
+  },
+  "threshold": 0.5,
+  "not_recovered": true,
+  "warning": "Small baseline: test smoke recall 0.50. Not a reliable safety detector."
+}
