@@ -1,0 +1,17 @@
+build/
+install/
+log/
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+*.pyc
+data/
+models/
+*.pt
+*.zip
+*.bag
+.env
+!checkpoints/smoke.pt
+
+maps/

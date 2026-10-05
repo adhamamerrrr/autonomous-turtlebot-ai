@@ -1,0 +1,7 @@
+numpy>=1.26,<3
+opencv-python-headless>=4.10,<5
+torch>=2.4,<3
+scikit-learn>=1.5,<2
+pytest>=8,<10
+
+PyYAML>=6,<7
