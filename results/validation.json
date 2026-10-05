@@ -1,0 +1,35 @@
+{
+  "reconstruction_month": "October/2026",
+  "unit_tests": {
+    "passed": 14
+  },
+  "colcon_build": {
+    "passed_packages": [
+      "autonomous_turtlebot_ai",
+      "turtlebot3_gazebo"
+    ],
+    "ros_distribution": "Jazzy"
+  },
+  "ros_gate_check": {
+    "passed": true,
+    "scope": "Live ROS2 graph with synthetic scan/camera/command messages: clear command, obstacle stop, alert latch"
+  },
+  "smoke_alert_check": {
+    "passed": true,
+    "scope": "Trained checkpoint replay of a selected positive validation image; three consecutive positives; no Gazebo camera"
+  },
+  "synthetic_video_training": {
+    "passed": true,
+    "scope": "Synthetic AVI decoding, one-epoch training, checkpoint reload and inference; no real violence result"
+  },
+  "gazebo_simulation": {
+    "passed": false,
+    "status": "blocked",
+    "reason": "Gazebo Transport processes exited while enumerating network interfaces: getifaddrs error. Mapping/navigation check timed out.",
+    "launch_fix": "Nav2 use_composition capitalization corrected to False after launch-expression error."
+  },
+  "real_violence_training": {
+    "status": "not performed",
+    "reason": "Official RWF-2000 media downloads withheld; no authorized training data acquired."
+  }
+}

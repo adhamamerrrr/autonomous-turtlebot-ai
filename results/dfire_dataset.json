@@ -1,0 +1,25 @@
+{
+  "source": "https://www.kaggle.com/api/v1/datasets/download/sayedgamal99/smoke-fire-detection-yolo",
+  "original_source": "https://github.com/gaia-solutions-on-demand/DFireDataset",
+  "license": "Upstream D-Fire collection CC0 1.0; Kaggle mirror declares CC0",
+  "archive_sha256": "65d81b602991261b47ddc71281e99108362a30336a448e1f8d21352c825c6d83",
+  "seed": 42,
+  "selected_images": 600,
+  "available_counts": {
+    "train": {
+      "0": 7228,
+      "1": 6894
+    },
+    "val": {
+      "0": 1549,
+      "1": 1550
+    },
+    "test": {
+      "0": 2225,
+      "1": 2081
+    }
+  },
+  "label_rule": "smoke if any YOLO class 0 box; fire-only is negative for smoke",
+  "split": "preserve mirror train/val/test, sample equally by label, remove selected exact byte duplicates",
+  "limitations": "Capture/source grouping unavailable. Filename groups do not guarantee scene-independent evaluation."
+}

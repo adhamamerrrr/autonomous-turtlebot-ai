@@ -1,0 +1,17 @@
+{
+  "source": "D-Fire validation-image replay over live ROS2",
+  "image": "data/val/images/WEB09153.jpg",
+  "selection": "first validation smoke image whose fixed-threshold prediction is positive; not random evaluation",
+  "score": 0.5019691586494446,
+  "active_alert": {
+    "kind": "smoke",
+    "active": true,
+    "score": 0.5019691586494446,
+    "threshold": 0.5,
+    "consecutive_predictions": 3,
+    "inference_seconds": 0.0017390569996678096,
+    "stamp_sec": 1791224387,
+    "stamp_nanosec": 935069317
+  },
+  "limitations": "Same image replayed; does not establish surveillance reliability or Gazebo smoke simulation."
+}

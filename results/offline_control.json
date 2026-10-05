@@ -1,0 +1,35 @@
+{
+  "data": "synthetic software control inputs",
+  "trace": [
+    {
+      "scenario": "no sensor data",
+      "linear": 0.0,
+      "angular": 0.0,
+      "state": "invalid_scan"
+    },
+    {
+      "scenario": "fresh clear path",
+      "linear": 0.1,
+      "angular": 0.2,
+      "state": "clear"
+    },
+    {
+      "scenario": "near obstacle",
+      "linear": 0.0,
+      "angular": 0.0,
+      "state": "obstacle"
+    },
+    {
+      "scenario": "injected visual alert",
+      "linear": 0.0,
+      "angular": 0.0,
+      "state": "visual_alert_latched"
+    },
+    {
+      "scenario": "stale camera and scan",
+      "linear": 0.0,
+      "angular": 0.0,
+      "state": "stale_sensor"
+    }
+  ]
+}
