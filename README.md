@@ -6,17 +6,11 @@ This repository demonstrates a TurtleBot3 simulation, SLAM Toolbox, Nav2, a velo
 
 ## Portfolio evidence at a glance
 
-See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implementation, training, testing, and validation matrix, and **[AI interview walkthrough](docs/AI_INTERVIEW_WALKTHROUGH.md)** for technical explanations. This repository contains both a trained small smoke **classification** baseline and an optional **untrained YOLO bounding-box detection** training script; these are distinct experiments.
+See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implementation, training, testing, and validation matrix, and **[AI interview walkthrough](docs/AI_INTERVIEW_WALKTHROUGH.md)** for technical explanations. This repository includes the graduation project's uploaded trained smoke-detection checkpoint [`best.pt`](best.pt), alongside a separate small smoke-classification baseline and an optional YOLO training utility. These are distinct artifacts.
 
-### Optional YOLO smoke detection experiment (untrained)
+### Trained smoke-detection model
 
-```bash
-pip install ultralytics
-python scripts/train_yolo_smoke.py --data /path/to/authorized/data.yaml --epochs 40 --device cpu
-pytest -q tests/test_yolo_smoke.py
-```
-
-The dataset must have bounding-box labels and a `smoke` class. The CLI does not ship a trained YOLO model or evaluation results. See [status](docs/PROJECT_STATUS.md).
+The graduation project's trained smoke-detection weights are available as **[`best.pt`](best.pt)**. This is the uploaded model artifact for the J.A.R.V.I.S. smoking-detection component. The separate training utility in `scripts/train_yolo_smoke.py` can be used for additional experiments; it is **not** the source of the uploaded checkpoint.
 
 ## Implemented components
 
@@ -94,7 +88,7 @@ source install/setup.bash
 ros2 launch autonomous_turtlebot_ai sim.launch.py
 ```
 
-The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The package includes its newly trained 229 KiB smoke checkpoint; original graduation-project weights are not included. Violence detection reports disabled rather than silently pretending to predict no events.
+The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The repository also includes the uploaded graduation-project smoke-detection weights at `best.pt`. The ROS2 simulation's separate small smoke-classification checkpoint is a different model and is not automatically replaced by `best.pt`. Violence detection reports disabled rather than silently pretending to predict no events.
 
 Open a second terminal, source ROS2, the virtual environment and workspace, then:
 
