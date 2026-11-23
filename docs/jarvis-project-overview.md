@@ -43,3 +43,15 @@ The supplied assets include three indoor mapping photographs, a ROS visualizatio
 ## Trained smoke-detection model artifact
 
 The trained smoke-detection checkpoint has been uploaded to the repository root as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. The checkpoint contains the project's trained model weights for smoke detection.
+
+## Architecture and workflow diagrams
+
+Five supplied project diagrams document the following subsystem designs:
+
+1. **Integrated system architecture:** TurtleBot 4 robot, external Ubuntu PC, J.A.R.V.I.S. voice pipeline, ROS 2 Jazzy topics, Nav2 patrol/navigation nodes, sensors, and safety control.
+2. **Detailed deployment architecture:** External PC voice processing and monitoring, on-robot patrol/navigation and sensor interfaces, ROS 2 DDS communication, staff JSON data, maps, waypoints, and logs.
+3. **Voice assistant interaction:** Wake word → voice activity detection → speech-to-text → intent recognition → dialogue management → reachability/confirmation → ROS 2 command → robot execution → text-to-speech.
+4. **Navigation/patrol startup:** Robot bring-up → saved map → AMCL localization → initial pose → TF verification → RViz → Nav2 → waypoint patrol loop and recovery actions.
+5. **Smoke detection and human review:** OAK-D Lite/YOLOv8n candidate detection → PC-side recheck → pending security review → human confirmation or false-alarm rejection → Firebase records → student visibility of confirmed violations only.
+
+The diagrams are architectural references. They should not by themselves be treated as proof that every subsystem was integrated or tested. Original diagram images should be added under `docs/architecture/` for inline README display.
