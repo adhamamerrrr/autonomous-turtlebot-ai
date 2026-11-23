@@ -1,12 +1,34 @@
-# Autonomous TurtleBot AI — ROS2, computer vision and localization
+# J.A.R.V.I.S. — TurtleBot 4 Campus Assistant & Smoke Detection
 
-This repository demonstrates a TurtleBot3 simulation, SLAM Toolbox, Nav2, a velocity supervisor and a PyTorch visual-alert pipeline. It is a portfolio implementation rather than the original university source code or historical experimental results. See [PROVENANCE.md](PROVENANCE.md) for technical provenance.
+Graduation project combining **TurtleBot 4 autonomous navigation**, a **ROS 2 voice assistant**, **computer vision smoke detection**, and a **Flutter security-review application**. The repository also includes a **separate TurtleBot3 simulation and ML demonstration**, documented below.
 
-**Validation status:** offline tests and live ROS2 message/alert checks passed. The ROS2/Gazebo launch is provided, but full simulation was **not validated here**: Gazebo Transport failed while enumerating network interfaces (`getifaddrs`) in the restricted execution environment. Mapping and autonomous navigation remain to be verified on an ordinary Ubuntu host.
+## Explore the graduation project
+
+| Component | Evidence / source |
+| --- | --- |
+| Selected trained smoke detector | [jarvis-best-new.pt](jarvis-best-new.pt) |
+| Flutter mobile app | [jarvis-app/lib/main.dart](jarvis-app/lib/main.dart) |
+| Python detection bridges | [jarvis-app/integration_bridge](jarvis-app/integration_bridge) |
+| Architecture and workflows | [J.A.R.V.I.S. project overview](docs/jarvis-project-overview.md) |
+| Training comparison | [Four-run evaluation](docs/jarvis-project-overview.md#smoke-detection-model-evaluation-supplied-project-results) |
+| Robot mapping and localization | [Mapping evidence](docs/real-world-mapping.md) |
+| Supplementary simulation | [TurtleBot3 ROS 2 demonstrator](#supplementary-turtlebot3-simulation-and-ml-demonstrator) |
+
+### Project demonstration media
+
+Demonstration videos and original architecture screenshots will be linked here once uploaded and reviewed. The current [system architecture](#architecture) is an editable Mermaid rendering of the supplied TurtleBot 4 design.
+
+### Selected model performance (project-reported)
+
+| Precision | Recall | mAP@0.5 | Best F1 |
+| ---: | ---: | ---: | ---: |
+| 0.921 | 0.909 | 0.955 | 0.910 |
+
+These are results reported in the supplied project materials for selected Run 4, not independently rerun results.
 
 ## Portfolio evidence at a glance
 
-See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implementation, training, testing, and validation matrix, and **[AI interview walkthrough](docs/AI_INTERVIEW_WALKTHROUGH.md)** for technical explanations. This repository includes the graduation project's uploaded trained smoke-detection checkpoint [`best.pt`](best.pt), alongside a separate small smoke-classification baseline and an optional YOLO training utility. These are distinct artifacts.
+See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implementation, training, testing, and validation matrix, and **[AI interview walkthrough](docs/AI_INTERVIEW_WALKTHROUGH.md)** for technical explanations. This repository includes the graduation project's selected trained smoke-detection checkpoint [`jarvis-best-new.pt`](jarvis-best-new.pt), alongside a separate small smoke-classification baseline and an optional YOLO training utility. These are distinct artifacts.
 
 ### Trained smoke-detection model
 
@@ -14,13 +36,17 @@ The graduation project's **selected newer trained smoke-detection checkpoint** i
 
 ## J.A.R.V.I.S. mobile application and smoke-detection evaluation
 
-The [Flutter application and Python integration source archive](jarvis-github-source-safe.zip) contains the campus-assistant application with robot start/stop, patrol control, navigation destinations, security review, and reviewed-detection screens. The integration archive includes Python adapters for still images, live/streamed video, and ROS camera topics. See [J.A.R.V.I.S. project documentation](docs/jarvis-project-overview.md) for the architecture and source-asset inventory.
+The [browsable Flutter application and Python integration source](jarvis-app/) contains the campus-assistant application with robot start/stop, patrol control, navigation destinations, security review, and reviewed-detection screens. The integration archive includes Python adapters for still images, live/streamed video, and ROS camera topics. See [J.A.R.V.I.S. project documentation](docs/jarvis-project-overview.md) for the architecture and source-asset inventory.
 
 The supplied model-comparison results identify **Run 4 (phone/pen/background fine-tune)** as the selected smoke detector: **precision 0.921, recall 0.909, mAP@0.5 0.955, best F1 0.910**. These are project-reported results; the underlying evaluation data has not been rerun here.
 
 **Checkpoint selection:** Use `jarvis-best-new.pt` for the project's selected Run 4 model. The repository-root `best.pt` is retained as an older checkpoint. When running the integration bridge, configure its model path to point to the selected checkpoint; do not silently default to the older weights.
 
-## Implemented components
+## Supplementary TurtleBot3 simulation and ML demonstrator
+
+The following section documents the **separate portfolio implementation**, not the original TurtleBot 4 graduation-project software.
+
+### Implemented components
 
 - TurtleBot3 **Waffle Pi** in Gazebo Harmonic with ROS2 Jazzy: camera, LiDAR, odometry and an occupancy map.
 - SLAM Toolbox mapping and Nav2 path planning, local costmaps and obstacle avoidance.
@@ -28,7 +54,7 @@ The supplied model-comparison results identify **Run 4 (phone/pen/background fin
 - A small **newly trained smoke checkpoint** from a public D-Fire subset, with camera classification and JSON alerts.
 - A temporal CNN/GRU training and inference implementation for eight-frame video clips. **A real violence detector is not trained or included:** the proposed RWF-2000 source currently withholds downloads. Synthetic clips validate the software path only.
 
-This is a portfolio demonstrator. The smoke baseline misses many events, and the supervisor does not cover a complete robot footprint or every failure mode. It is unsuitable for unattended safety or surveillance decisions. No hardware testing or production deployment is claimed.
+This supplementary implementation is a portfolio demonstrator. The smoke baseline misses many events, and the supervisor does not cover a complete robot footprint or every failure mode. It is unsuitable for unattended safety or surveillance decisions. No hardware testing or production deployment is claimed.
 
 ## Architecture
 
