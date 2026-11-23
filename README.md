@@ -131,6 +131,19 @@ The helper preserves the mirror's split membership and samples 200 examples per 
 
 `results/smoke_manifest.csv`, media hashes, archive fingerprint and training history make the measured run inspectable. Reproducibility depends on the recorded archive version; a changed mirror can change results. No large images or datasets are committed.
 
+## Video inference with an evaluated checkpoint
+
+A standalone CLI now runs temporal inference on a supplied video. It decodes eight evenly spaced RGB frames, matching the offline training loader. **There is no trained, validated real-world violence checkpoint included.** Only use a model trained on authorized, appropriately licensed data, with independent evaluation and human review.
+
+```bash
+# Only after training and evaluating a genuine video checkpoint:
+python scripts/predict_video.py /path/to/authorized/video.mp4 \
+  --model models/violence/violence.pt --threshold 0.5
+pytest -q tests/test_predict_video.py
+```
+
+The result is an experimental review flag, not a factual allegation about anyone shown in a video. The default threshold is illustrative; choose operating thresholds from validation data rather than held-out test results. Synthetic AVI checks validate decoding and software integration only.
+
 ## Video training path
 
 Obtain an appropriately licensed public video dataset from its authorized source. The current RWF-2000 access restriction is a concrete blocker for that dataset. No credentials, student IDs or private footage belong in this repo.
