@@ -1,0 +1,1 @@
+Use the selected trained smoke-detection checkpoint [`jarvis-best-new.pt`](../jarvis-best-new.pt). Place a local copy at `integration_bridge/best.pt` if required by the integration scripts. Do not commit service-account JSON keys. Configure Firebase through environment variables or local secure credentials.
