@@ -6,6 +6,20 @@ Rebuilt in October/2026 from my original graduation project.
 
 **Validation status:** offline tests and live ROS2 message/alert checks passed. The ROS2/Gazebo launch is provided, but full simulation was **not validated here**: Gazebo Transport failed while enumerating network interfaces (`getifaddrs`) in the restricted execution environment. Mapping and autonomous navigation remain to be verified on an ordinary Ubuntu host.
 
+## Portfolio evidence at a glance
+
+See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implementation, training, testing, and validation matrix, and **[AI interview walkthrough](docs/AI_INTERVIEW_WALKTHROUGH.md)** for technical explanations. This repository contains both a trained small smoke **classification** baseline and an optional **untrained YOLO bounding-box detection** training script; these are distinct experiments.
+
+### Optional YOLO smoke detection experiment (untrained)
+
+```bash
+pip install ultralytics
+python scripts/train_yolo_smoke.py --data /path/to/authorized/data.yaml --epochs 40 --device cpu
+pytest -q tests/test_yolo_smoke.py
+```
+
+The dataset must have bounding-box labels and a `smoke` class. The CLI does not ship a trained YOLO model or evaluation results. See [status](docs/PROJECT_STATUS.md).
+
 ## Implemented components
 
 - TurtleBot3 **Waffle Pi** in Gazebo Harmonic with ROS2 Jazzy: camera, LiDAR, odometry and an occupancy map.
