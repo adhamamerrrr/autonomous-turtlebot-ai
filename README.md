@@ -24,20 +24,49 @@ This is a portfolio demonstrator. The smoke baseline misses many events, and the
 
 ## Architecture
 
+The following diagram reflects the **TurtleBot 4 Campus Guide & Security Robot** integrated system architecture supplied with the graduation project, rather than the separate TurtleBot3 simulation demonstrator described elsewhere in this repository.
+
 ```mermaid
-flowchart TD
-    G[Gazebo TurtleBot3] --> L[LiDAR and odometry]
-    G --> C[Camera frames]
-    L --> S[SLAM Toolbox map]
-    S --> N[Nav2 planning and costmaps]
-    C --> V[PyTorch event classifier]
-    N --> F[Velocity supervisor]
-    L --> F
-    C --> F
-    V --> A[JSON alerts]
-    A --> F
-    F --> G
+flowchart LR
+    U["User voice commands"] --> MIC["Jabra Speak 510 microphone / speaker"]
+    subgraph PC["External Ubuntu PC · ROS 2 Jazzy"]
+      MIC --> W["openWakeWord · Hey Jarvis"]
+      W --> V["Silero VAD"]
+      V --> STT["faster-whisper · Speech to text"]
+      STT --> INT["Intent parser · Rules and fuzzy matching"]
+      INT --> DM["Dialogue manager"]
+      DB[("Staff JSON database")] --> DM
+      MAP[("Maps · Reachable locations · Waypoints")] --> RC["Reachability and confirmation"]
+      DM --> RC
+      RC --> TTS["pyttsx3 · Spoken response"]
+      TTS --> MIC
+      MON["System monitoring · Health · Logs · Watchdog"]
+    end
+    subgraph ROS["ROS 2 DDS · Topics / Services / Actions"]
+      CMD["Patrol start/stop · Voice target room"]
+      FB["Odometry · Laser scan · Camera · Robot status"]
+    end
+    RC --> CMD
+    FB --> MON
+    subgraph TB4["TurtleBot 4 · On-robot ROS 2 nodes"]
+      PAT["Patrol manager"]
+      NAV["Nav2 navigation"]
+      WP["Waypoint / map manager"]
+      SAFE["Safety monitor · E-stop / bumper"]
+      SENS["LiDAR · RGB/depth cameras · IMU · Encoders"]
+      MOTOR["Motor driver · Differential drive"]
+      PAT --> NAV
+      WP --> NAV
+      NAV --> MOTOR
+      SENS --> NAV
+      SENS --> SAFE
+      SAFE --> MOTOR
+    end
+    CMD --> PAT
+    SENS --> FB
 ```
+
+**Related workflows:** [J.A.R.V.I.S. architecture and workflows](docs/jarvis-project-overview.md) covers voice interaction, navigation/patrol startup, and the separate two-stage smoke-detection and human-review pipeline.
 
 ### Design choices you can discuss
 
