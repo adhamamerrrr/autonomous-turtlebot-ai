@@ -1,25 +1,27 @@
-# J.A.R.V.I.S. Flutter application and integration source
+# J.A.R.V.I.S. Flutter application and detection integration
 
-The [uploaded source archive](../jarvis-github-source-safe.zip) contains the Flutter mobile application and Python integration scripts for the TurtleBot 4 campus assistant.
+This folder contains the extracted, browsable Flutter application and Python integration source for the TurtleBot 4 campus assistant.
 
-## Source archive layout
+## Source code
 
-- `jarvis-app/lib/main.dart` — Flutter application entry point and UI
-- `jarvis-app/pubspec.yaml` / `pubspec.lock` — Flutter dependencies
-- `jarvis-app/test/widget_test.dart` — Flutter widget test
-- `jarvis-app/integration_bridge/ml_image_to_pending_detection.py` — image detection bridge
-- `jarvis-app/integration_bridge/ml_live_to_pending_detection.py` — live camera bridge
-- `jarvis-app/integration_bridge/ml_stream_to_pending_detection.py` — stream detection bridge
-- `jarvis-app/integration_bridge/ml_ros_camera_to_pending_detection.py` — ROS camera bridge
-- `jarvis-app/integration_bridge/ml_ros_compressed_camera_to_pending_detection.py` — compressed ROS image bridge
-- `jarvis-app/integration_bridge/seed_sample_database.py` — sample data utility
-- `jarvis-app/integration_bridge/requirements.txt` — Python dependencies
-- `jarvis-app/integration_bridge/data.yaml` — model dataset configuration
+- [Flutter application](lib/main.dart)
+- [Flutter package dependencies](pubspec.yaml)
+- [Widget test](test/widget_test.dart)
+- [Image detection bridge](integration_bridge/ml_image_to_pending_detection.py)
+- [Live camera detection bridge](integration_bridge/ml_live_to_pending_detection.py)
+- [Video stream detection bridge](integration_bridge/ml_stream_to_pending_detection.py)
+- [ROS camera detection bridge](integration_bridge/ml_ros_camera_to_pending_detection.py)
+- [ROS compressed camera detection bridge](integration_bridge/ml_ros_compressed_camera_to_pending_detection.py)
+- [Sample database utility](integration_bridge/seed_sample_database.py)
+- [Python dependencies](integration_bridge/requirements.txt)
+- [Model setup](MODEL_SETUP.md)
 
-## Official checkpoint
+## Selected smoke-detection model
 
-Use [`jarvis-best-new.pt`](../jarvis-best-new.pt) as the selected newer smoke-detection model. The earlier [`best.pt`](../best.pt) remains for comparison. If an integration script expects `best.pt` in its working directory, explicitly supply or copy the selected checkpoint there.
+The selected newer trained checkpoint is [`jarvis-best-new.pt`](../jarvis-best-new.pt). The earlier [`best.pt`](../best.pt) remains available. See [model setup](MODEL_SETUP.md) for configuring a local model copy.
 
-## Important distinction
+## Source archive and assets
 
-The downloadable ZIP contains the source files; the source files have **not yet been extracted into individual GitHub paths**. The diagrams and screenshots supplied in the project discussion are likewise not yet published as image files. See [project overview](../docs/jarvis-project-overview.md) for the supplied evaluation figures and workflow descriptions.
+The [original sanitized source archive](../jarvis-github-source-safe.zip) is retained for convenience. Text source files have now been extracted into this folder. The NGU logo image is still inside the ZIP and has not yet been uploaded as a standalone image.
+
+Never commit Firebase service-account keys or other credentials.
