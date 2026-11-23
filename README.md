@@ -16,7 +16,7 @@ Graduation project combining **TurtleBot 4 autonomous navigation**, a **ROS 2 vo
 
 ### Project demonstration media
 
-Demonstration videos and original architecture screenshots will be linked here once uploaded and reviewed. The current [system architecture](#architecture) is an editable Mermaid rendering of the supplied TurtleBot 4 design.
+Two project videos have been reviewed and prepared for publication: **Campus Demonstration** (2:18, robot in an indoor university setting) and **Robot Hardware Showcase** (1:03, close-up of the mobile base and mounted head). The compressed videos are not yet hosted in this repository; see [demonstration media guide](docs/DEMO_MEDIA.md). These videos should not be treated as independent validation of the smoke-detection model or voice assistant. The current [system architecture](#architecture) is an editable Mermaid rendering of the supplied TurtleBot 4 design.
 
 ### Selected model performance (project-reported)
 
