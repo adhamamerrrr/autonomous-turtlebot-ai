@@ -18,7 +18,7 @@ Graduation project combining **TurtleBot 4 autonomous navigation**, a **ROS 2 vo
 
 - [Robot hardware showcase (video)](JARVIS_Robot_Hardware_Showcase.mp4) — close-up of the physical robot platform.
 - [Smoking detection demonstration (video)](JARVIS_Smoking_Detection_Demo.mp4) — camera inference with bounding box and visible detection alert.
-- **Campus demonstration:** upload pending; see [media inventory](docs/DEMO_MEDIA.md).
+- [Campus demonstration (video)](JARVIS_Campus_Demonstration.mov) — robot demonstrated in an indoor university environment.
 
 The videos illustrate the hardware and one detection example; they do not independently validate model-wide accuracy or autonomous navigation performance.
 
