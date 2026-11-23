@@ -23,18 +23,24 @@ The supplied graduation-project posters describe a TurtleBot 4-based autonomous 
 4. A human reviewer confirms or rejects the incident.
 5. Confirmed incidents can be reflected in the application's warning records.
 
-## Poster-reported detection metrics
+## Smoke-detection model evaluation (supplied project results)
 
-| Metric | Poster value |
-| --- | ---: |
-| Precision | 0.921 |
-| Recall | 0.909 |
-| mAP@0.5 | 0.955 |
-| mAP@0.5:0.95 | 0.761 |
-| Best F1 | 0.910 |
-| Reported confidence threshold | 0.350 |
+The project materials compare four training runs. **Run 4** is labeled the final selected model, with phone/pen/background fine-tuning. The figures below are transcribed from the supplied charts and run summary; they have not been independently recomputed from a test dataset.
 
-These evaluation metrics are reported in the project presentation.
+| Run | Precision | Recall | mAP@0.5 | Best F1 | Missed cigarette | Missed vape | Background false positives |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 — fixed dataset, 20 epochs | 0.893 | 0.843 | 0.920 | 0.870 | 212 | 174 | 628 |
+| 2 — fixed dataset, 50 epochs | 0.923 | 0.887 | 0.948 | 0.900 | 148 | 112 | 458 |
+| 3 — robot-style background fine-tune | 0.927 | 0.890 | 0.947 | 0.910 | 159 | 104 | 462 |
+| **4 — phone/pen/background fine-tune (selected)** | **0.921** | **0.909** | **0.955** | **0.910** | **129** | **87** | **447** |
+
+The supplied project poster additionally reports mAP@0.5:0.95 of 0.761 and a confidence threshold of 0.350. These values should be attributed to the project presentation unless independently reproduced.
+
+## Integrated application and evidence
+
+The supplied `ngu_campus_assistant_new_model_integrated.zip` contains Flutter application source (`lib/main.dart`), Android/iOS project files, and Python integration bridges for image, live video, streaming video, ROS camera, and compressed ROS camera detections. Its `integration_bridge/best.pt` is the supplied newer smoke-detection checkpoint. The supplied screenshots show the TB4-01 robot control interface, security review queue, and reviewed detections interface. Do not publish live credentials or configuration secrets from the application archive.
+
+The new checkpoint and application ZIP are user-supplied assets; the repository's existing root `best.pt` must be compared and replaced separately before claiming that it contains the new selected model.
 
 ## Supporting evidence
 
