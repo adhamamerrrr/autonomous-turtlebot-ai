@@ -44,4 +44,4 @@ The supplied assets include three indoor mapping photographs, a ROS visualizatio
 
 ## Trained smoke-detection model artifact
 
-The supplied trained checkpoint `best(2).pt` is for **smoke detection**, not violence detection. Its intended repository name is `best.pt`. The binary weights have not yet been committed. Architecture, class labels, training provenance, and reproducible evaluation require verification before further claims.
+The trained smoke-detection checkpoint has been uploaded to the repository root as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. Architecture, class labels, training provenance, and reproducible evaluation require verification before further claims.
