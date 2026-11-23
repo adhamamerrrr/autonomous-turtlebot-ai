@@ -16,7 +16,11 @@ Graduation project combining **TurtleBot 4 autonomous navigation**, a **ROS 2 vo
 
 ### Project demonstration media
 
-Two project videos have been reviewed and prepared for publication: **Campus Demonstration** (2:18, robot in an indoor university setting) and **Robot Hardware Showcase** (1:03, close-up of the mobile base and mounted head). The compressed videos are not yet hosted in this repository; see [demonstration media guide](docs/DEMO_MEDIA.md). These videos should not be treated as independent validation of the smoke-detection model or voice assistant. The current [system architecture](#architecture) is an editable Mermaid rendering of the supplied TurtleBot 4 design.
+- [Robot hardware showcase (video)](JARVIS_Robot_Hardware_Showcase.mp4) — close-up of the physical robot platform.
+- [Smoking detection demonstration (video)](JARVIS_Smoking_Detection_Demo.mp4) — camera inference with bounding box and visible detection alert.
+- **Campus demonstration:** upload pending; see [media inventory](docs/DEMO_MEDIA.md).
+
+The videos illustrate the hardware and one detection example; they do not independently validate model-wide accuracy or autonomous navigation performance.
 
 ### Selected model performance (project-reported)
 
