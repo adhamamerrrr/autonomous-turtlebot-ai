@@ -145,6 +145,17 @@ python -m autonomous_turtlebot_ai.train --task violence --manifest manifest.csv 
 
 Offline training samples cover a whole clip; live inference uses the latest eight frames at roughly 5 Hz. This temporal-distribution difference must be evaluated before claiming useful live detection.
 
+## AI evaluation audit for technical interviews
+
+The repository includes a standard-library-only evaluator for the existing held-out smoke scores. It independently recomputes the confusion matrix, accuracy, event precision/recall/F1, and false-positive/false-negative rates, and checks that the saved confusion matrix matches the scores. It works for either smoke or violence **when a real evaluated model and results file exist**; no real violence metrics are claimed.
+
+```bash
+python scripts/audit_model.py results/smoke_results.json
+python -m unittest discover -s tests -p 'test_model_audit.py' -v
+```
+
+The published smoke baseline has 41 true negatives, 9 false positives, 25 false negatives, and 25 true positives on its 100-image test split (66% accuracy, 50% smoke recall). This is **not** the claimed performance of the original graduation model. Do not choose thresholds on the test set; select them on validation data, then evaluate once on untouched test data.
+
 ## Tests and observed results
 
 ```bash
