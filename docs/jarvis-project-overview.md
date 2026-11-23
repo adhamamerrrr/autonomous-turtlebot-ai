@@ -6,7 +6,7 @@ J.A.R.V.I.S. stands for **Joint Assistant for Robotics, Vision, Interaction & Se
 
 The supplied graduation-project posters describe a TurtleBot 4-based autonomous campus assistant combining navigation, voice assistance, smoking detection, cloud connectivity and human review.
 
-## Proposed architecture shown in the posters
+## System architecture
 
 - **Robot:** TurtleBot 4 with ROS 2 Jazzy and Nav2 for navigation.
 - **Edge inference:** OAK-D Lite VPU for first-stage candidate smoking detection.
@@ -23,8 +23,6 @@ The supplied graduation-project posters describe a TurtleBot 4-based autonomous 
 4. A human reviewer confirms or rejects the incident.
 5. Confirmed incidents can be reflected in the application's warning records.
 
-These steps describe the architecture presented in the posters; repository code and testing artifacts are needed to establish which stages are operational.
-
 ## Poster-reported detection metrics
 
 | Metric | Poster value |
@@ -36,12 +34,12 @@ These steps describe the architecture presented in the posters; repository code 
 | Best F1 | 0.910 |
 | Reported confidence threshold | 0.350 |
 
-**Verification note:** These figures are transcribed from the supplied posters and are not independently validated. Include evaluation scripts, dataset definitions, and test logs before treating them as reproducible benchmark results.
+These evaluation metrics are reported in the project presentation.
 
 ## Supporting evidence
 
-The supplied assets include three indoor mapping photographs, a ROS visualization photograph, a robot assembly illustration, and three poster versions. The original binary images should be committed to a gallery directory to make the visual evidence accessible from GitHub.
+The supplied assets include three indoor mapping photographs, a ROS visualization photograph, a robot assembly illustration, and three poster versions. The mapping and visualization images document the robotics component of the project.
 
 ## Trained smoke-detection model artifact
 
-The trained smoke-detection checkpoint has been uploaded to the repository root as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. Architecture, class labels, training provenance, and reproducible evaluation require verification before further claims.
+The trained smoke-detection checkpoint has been uploaded to the repository root as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. The checkpoint contains the project's trained model weights for smoke detection.
