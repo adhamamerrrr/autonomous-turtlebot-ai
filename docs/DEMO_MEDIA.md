@@ -7,6 +7,10 @@ Three project videos were supplied and reviewed:
 
 3. **JARVIS_Smoking_Detection_Demo.mp4** — 33 seconds. A camera-based detection interface shows a cigarette bounding box, confidence score (0.84 in the inspected frame), and an on-screen `SMOKING DETECTED` alert. Suggested caption: *Smoking-detection model demonstration with live camera inference and visual alert.*
 
-Compressed copies and preview images were prepared separately for upload. They are **not yet committed to GitHub**. Once uploaded to `docs/media/`, replace this paragraph with direct links or embeds.
+All three demonstration videos are now available in the repository root:
+
+- [Campus demonstration](../JARVIS_Campus_Demonstration.mov)
+- [Robot hardware showcase](../JARVIS_Robot_Hardware_Showcase.mp4)
+- [Smoking detection demonstration](../JARVIS_Smoking_Detection_Demo.mp4)
 
 The first two clips illustrate the physical platform; the third illustrates a smoke-detection inference example. They do not independently establish aggregate model accuracy, voice recognition, mapping, or autonomous navigation. Model metrics are separately identified as project-reported results.
