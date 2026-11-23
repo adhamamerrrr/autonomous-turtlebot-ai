@@ -10,15 +10,15 @@ See **[AI project status](docs/PROJECT_STATUS.md)** for a per-component implemen
 
 ### Trained smoke-detection model
 
-The graduation project's trained smoke-detection weights are available as **[`best.pt`](best.pt)**. This is the uploaded model artifact for the J.A.R.V.I.S. smoking-detection component. The separate training utility in `scripts/train_yolo_smoke.py` can be used for additional experiments; it is **not** the source of the uploaded checkpoint.
+The graduation project's **selected newer trained smoke-detection checkpoint** is **[`jarvis-best-new.pt`](jarvis-best-new.pt)**. The earlier [`best.pt`](best.pt) remains available as a previous checkpoint. This is the uploaded model artifact for the J.A.R.V.I.S. smoking-detection component. The separate training utility in `scripts/train_yolo_smoke.py` can be used for additional experiments; it is **not** the source of the uploaded checkpoint.
 
 ## J.A.R.V.I.S. mobile application and smoke-detection evaluation
 
-The supplied graduation-project materials include a Flutter campus-assistant application with robot start/stop, patrol control, navigation destinations, security review, and reviewed-detection screens. The integration archive includes Python adapters for still images, live/streamed video, and ROS camera topics. See [J.A.R.V.I.S. project documentation](docs/jarvis-project-overview.md) for the architecture and source-asset inventory.
+The [Flutter application and Python integration source archive](jarvis-github-source-safe.zip) contains the campus-assistant application with robot start/stop, patrol control, navigation destinations, security review, and reviewed-detection screens. The integration archive includes Python adapters for still images, live/streamed video, and ROS camera topics. See [J.A.R.V.I.S. project documentation](docs/jarvis-project-overview.md) for the architecture and source-asset inventory.
 
 The supplied model-comparison results identify **Run 4 (phone/pen/background fine-tune)** as the selected smoke detector: **precision 0.921, recall 0.909, mAP@0.5 0.955, best F1 0.910**. These are project-reported results; the underlying evaluation data has not been rerun here.
 
-**Checkpoint version note:** A newer 5,453,189-byte `best.pt` was supplied in the integrated application archive, distinct from the previously uploaded root checkpoint. The GitHub root checkpoint has **not yet been replaced** with the new version. Do not assume the repository-root weights are the selected Run 4 weights until that upload is completed.
+**Checkpoint selection:** Use `jarvis-best-new.pt` for the project's selected Run 4 model. The repository-root `best.pt` is retained as an older checkpoint. When running the integration bridge, configure its model path to point to the selected checkpoint; do not silently default to the older weights.
 
 ## Implemented components
 
@@ -125,7 +125,7 @@ source install/setup.bash
 ros2 launch autonomous_turtlebot_ai sim.launch.py
 ```
 
-The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The repository also includes the uploaded graduation-project smoke-detection weights at `best.pt`. The ROS2 simulation's separate small smoke-classification checkpoint is a different model and is not automatically replaced by `best.pt`. Violence detection reports disabled rather than silently pretending to predict no events.
+The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The repository includes the selected newer graduation-project smoke-detection weights at `jarvis-best-new.pt` and an earlier checkpoint at `best.pt`. The ROS2 simulation's separate small smoke-classification checkpoint is a different model and is not automatically replaced by `best.pt`. Violence detection reports disabled rather than silently pretending to predict no events.
 
 Open a second terminal, source ROS2, the virtual environment and workspace, then:
 
