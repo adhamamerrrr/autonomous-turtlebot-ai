@@ -41,3 +41,7 @@ These steps describe the architecture presented in the posters; repository code 
 ## Supporting evidence
 
 The supplied assets include three indoor mapping photographs, a ROS visualization photograph, a robot assembly illustration, and three poster versions. The original binary images should be committed to a gallery directory to make the visual evidence accessible from GitHub.
+
+## Trained smoke-detection model artifact
+
+The supplied trained checkpoint `best(2).pt` is for **smoke detection**, not violence detection. Its intended repository name is `best.pt`. The binary weights have not yet been committed. Architecture, class labels, training provenance, and reproducible evaluation require verification before further claims.
