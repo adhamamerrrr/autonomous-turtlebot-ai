@@ -1,0 +1,8 @@
+path: C:/Users/esafe/OneDrive/Desktop/grad/FixedSmokingDataset
+train: train/images
+val: valid/images
+test: test/images
+nc: 2
+names:
+  0: cigarette
+  1: vape
