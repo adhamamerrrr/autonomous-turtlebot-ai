@@ -156,6 +156,20 @@ python -m unittest discover -s tests -p 'test_model_audit.py' -v
 
 The published smoke baseline has 41 true negatives, 9 false positives, 25 false negatives, and 25 true positives on its 100-image test split (66% accuracy, 50% smoke recall). This is **not** the claimed performance of the original graduation model. Do not choose thresholds on the test set; select them on validation data, then evaluate once on untouched test data.
 
+### Investigate smoke false negatives
+
+The error-analysis tool joins saved test scores to the **original test manifest order**. It lists which images were missed or falsely flagged, allowing targeted manual review of lighting, small smoke regions, occlusion, confusing backgrounds and labeling quality. Those are hypotheses to investigate, **not proven causes**.
+
+```bash
+python scripts/analyze_errors.py \
+  --manifest results/smoke_manifest.csv \
+  --results results/smoke_results.json \
+  --output results/smoke_errors.json
+python -m unittest discover -s tests -p 'test_error_analysis.py' -v
+```
+
+The published baseline has **25 missed smoke images and 9 false alarms**. The tool does not improve the model by itself: review errors, revise the **training** data or architecture, select a threshold using **validation** data, and evaluate on a new untouched test set. It also supports a real violence-video evaluation report if licensed clips and their manifest become available. No trained real-world violence model is currently claimed.
+
 ## Tests and observed results
 
 ```bash
