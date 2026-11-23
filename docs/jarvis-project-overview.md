@@ -40,7 +40,7 @@ The supplied project poster additionally reports mAP@0.5:0.95 of 0.761 and a con
 
 The supplied `ngu_campus_assistant_new_model_integrated.zip` contains Flutter application source (`lib/main.dart`), Android/iOS project files, and Python integration bridges for image, live video, streaming video, ROS camera, and compressed ROS camera detections. Its `integration_bridge/best.pt` is the supplied newer smoke-detection checkpoint. The supplied screenshots show the TB4-01 robot control interface, security review queue, and reviewed detections interface. Do not publish live credentials or configuration secrets from the application archive.
 
-The new checkpoint and application ZIP are user-supplied assets; the repository's existing root `best.pt` must be compared and replaced separately before claiming that it contains the new selected model.
+The newer model has been uploaded separately as [`jarvis-best-new.pt`](../jarvis-best-new.pt). The existing root `best.pt` remains the earlier model. The [sanitized Flutter and Python integration source archive](../jarvis-github-source-safe.zip) is also uploaded.
 
 ## Supporting evidence
 
@@ -48,7 +48,7 @@ The supplied assets include three indoor mapping photographs, a ROS visualizatio
 
 ## Trained smoke-detection model artifact
 
-The trained smoke-detection checkpoint has been uploaded to the repository root as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. The checkpoint contains the project's trained model weights for smoke detection.
+The selected newer smoke-detection checkpoint is [`jarvis-best-new.pt`](../jarvis-best-new.pt), with an earlier checkpoint preserved as [`best.pt`](../best.pt). It is for **smoke/smoking detection**, not violence detection. The checkpoint contains the project's trained model weights for smoke detection.
 
 ## Architecture and workflow diagrams
 
