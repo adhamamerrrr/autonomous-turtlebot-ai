@@ -1,8 +1,6 @@
-# Autonomous TurtleBot AI — simulation-first reconstruction
+# Autonomous TurtleBot AI — ROS2, computer vision and localization
 
-Rebuilt in October/2026 from my original graduation project.
-
-**New AI-assisted reconstruction, not recovered original code or historical results.** This repository combines upstream TurtleBot3 simulation, SLAM Toolbox and Nav2 with a newly written velocity supervisor and PyTorch visual-alert pipeline. The recovered TurtleBot4 course team script is preserved separately; see [PROVENANCE.md](PROVENANCE.md).
+This repository demonstrates a TurtleBot3 simulation, SLAM Toolbox, Nav2, a velocity supervisor and a PyTorch visual-alert pipeline. It is a portfolio implementation rather than the original university source code or historical experimental results. See [PROVENANCE.md](PROVENANCE.md) for technical provenance.
 
 **Validation status:** offline tests and live ROS2 message/alert checks passed. The ROS2/Gazebo launch is provided, but full simulation was **not validated here**: Gazebo Transport failed while enumerating network interfaces (`getifaddrs`) in the restricted execution environment. Mapping and autonomous navigation remain to be verified on an ordinary Ubuntu host.
 
@@ -96,7 +94,7 @@ source install/setup.bash
 ros2 launch autonomous_turtlebot_ai sim.launch.py
 ```
 
-The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The package includes its newly trained 229 KiB smoke checkpoint; original model weights are not recovered. Violence detection reports disabled rather than silently pretending to predict no events.
+The default launch runs Gazebo headless. Gazebo's first run downloads upstream ground-plane and sun assets. Use `gz sim -g` in another terminal if you have a desktop and want its GUI. The package includes its newly trained 229 KiB smoke checkpoint; original graduation-project weights are not included. Violence detection reports disabled rather than silently pretending to predict no events.
 
 Open a second terminal, source ROS2, the virtual environment and workspace, then:
 
